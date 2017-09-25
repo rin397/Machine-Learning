@@ -1,0 +1,182 @@
+<html>
+<head>
+	<title></title>
+</head>
+
+<style>
+body {background-color: powderblue;}
+div   { float:left ; width: 100%;} 
+p    {color: red;}
+</style>
+<body>
+
+<div><h4> 定義</h4></div>
+<div>
+	<ul>
+		<li>決策樹是種不需要分佈假設統計的監督式學習，主要是用在回歸與分類上面，藉由測試集資料中的特徵資料去建模學習，如何藉由這些特徵資料去預測可能的結果</li>
+		<li>樹中每個節點表示某個對象，而每個分叉路徑則代表某個可能的屬性值，而每個葉節點則對應從根節點到該葉節點所經歷的路徑所表示的對象的值
+		</li>
+		<li>決策樹僅有單一輸出，若欲有複數輸出，可以建立獨立的決策樹以處理不同輸出
+		</li>
+		<li>數據挖掘中決策樹是一種經常要用到的技術，可以用於分析數據，同樣也可以用來作預測
+		</li>
+		<li>從數據產生決策樹的機器學習技術叫做決策樹學習，通俗說就是決策樹
+		</li>
+	</ul>
+</div>
+
+
+<div><h4> 哪些元素組成</h4></div>
+
+<img src="https://www.evernote.com/shard/s122/res/79ddeca4-b77b-4673-b45a-732125c0c65c" 
+alt="Smiley face" height="482px" width="642px">
+
+
+<div><h4> 決策數演算法基礎知識</h4></div>
+<div>
+	<ul>
+		<li>通常採用由上而下(Top-Down)，以遞迴的方式建立</li>
+		<li>資料的屬性必須是「類別型態」</li>
+		<li>連續型數據，必須先離散化過後才可以開始建立決策樹</li>
+		<li>本質是一種貪婪策略(greedy strategy)，找出局部最佳（locally optimal）解法</li>
+	</ul>
+</div>
+
+
+<div><h4> 构造一颗决策树需要解决四个问题</h4></div>
+<div>
+	<ul>
+		<li>选择什么特征进行分裂？如何给定分裂的临界值？</li>
+		<li>如何评估分类的效果？</li>
+		<li>分裂到什么时候停止？</li>
+		<li>每个叶子节点都有一个对应的分类结果，怎么给？</li>
+	</ul>
+</div>
+
+
+<div><h4> 過擬合 - 出现过拟合 Overtraining 的一些原因</h4></div>
+<div>
+	<ul>
+		<li>建模样本抽取错误</li>
+		<li>样本里的噪音数据干扰过大</li>
+		<li>建模时的“逻辑假设”到了模型应用时已经不能成立了</li>
+		<li>参数太多、模型复杂度高</li>
+		<li>解决方案及原理</li>
+	</ul>
+</div>
+
+
+<div><h4> 防止决策树过拟合有这几种方法：</h4></div>
+<div>
+	<ul>
+		<li>停止准则：当某次分割的不纯度降低小于我们制定的标准时，该节点不再分裂；</li>
+		<li>剪枝：不限制树的生长，在树形成之后合并某些节点，即剪枝；</li>
+		<li>限定树的深度：当决策树层数达到限定的值深度时，停止生长；</li>
+	</ul>
+</div>
+
+
+<div><h4> 如何評估節點的Impurity？通常可以使用的指標進行評估：</h4></div>
+<div>
+	<ul>
+		<li>Entropy: 用来衡量一段媒介中所包含信息量的平均大小(公式：<img src="https://www.evernote.com/shard/s122/res/199e5b49-ba0c-4198-9615-be6c25931726">)</li>
+		<li>Gini Index</li>
+		<li>Misclassification error</li>
+	</ul>
+</div>
+
+<div><h4> 哪些常用演算法：</h4></div>
+<div>
+	常见的算法包括 CART (Classification And Regression Tree)、ID3、C4.5、随机森林 (Random Forest)、Hunt's algorithm等。Hunt算法是一種採用局部最優策略的決策樹構建算法，決策樹算法的基礎。
+</div>
+
+
+<div><h4> 資訊獲利(Information gain)：ID3、C4.5、C5.0</h4></div>
+<div>
+	按照信息增益最大的原则选Outlook为根节点。子节点重复上面的步骤。这颗树可以是这样的，它读起来就跟你认为的那样; 選擇entropy最大值的。
+	
+			<div><h4>ID3</h4></div>
+			<div>
+				<ul>
+					<li>
+						ID3 算法是根据概率统计知识 ,设事件为 A , B ,称 P( B | A) 为 事件 A 发生时事件B 会发生的概率 ,并称这个条件概率 P( B | A) 为训练实例集 A 发生后 ,事件 B 对训练集中 某例别的影响度。
+					</li>
+				</ul> 
+			</div>
+		
+		
+			<div><h4>C4.5</h4></div>
+			<div>
+				<ul>
+					<li>用信息增益率</li>
+					<li>在樹構造過程中進行剪枝</li>
+					<li>能夠完成對連續屬性的離散化處理</li>
+					<li>能夠對不完整數據進行處理</li>
+				</ul> 
+			</div>
+			<div><h4>C5.0</h4></div>
+			<div>
+				<ul>
+					<li>在內存管理等方面，給出了改進</li>
+				</ul> 
+			</div>
+</div>
+
+<div><h4>吉尼係數(Gini Index)：CART</h4></div>
+			<div>
+				<ul>
+					<li>是一种不等性度量</li>
+					<li>通常用来度量收入不平衡，可以用来度量任何不均匀分布</li>
+					<li>是介于0~1之间的数，0-完全相等，1-完全不相等</li>
+					<li>总体内包含的类别越杂乱，GINI指数就越大（跟熵的概念很相似）</li>
+				</ul> 
+			</div>
+
+<div><h4>吉尼係數(Gini Index)：CART</h4></div>
+<span>
+	Random Forest的基本原理是，結合多顆CART樹（CART樹為使用GINI算法的決策樹），並加入隨機分配的訓練資料，以大幅增進最終的運算結果。不過，這個方法必須基於下面的理論：Ensemble Method
+
+Ensemble Method（集成方法）的想法是，如果單個分類器表現OK，那麼將多個分類器組合起來，其表現會優於單個分類器。也就是論基於「人多力量大，三個臭皮匠勝過一個諸葛亮。」
+
+不過要滿足這理論是有條件的：
+<div>
+				<ul>
+					<li>各個分類器之間須具有差異性</li>
+					<li>每個分類器的準確度必須大於0.5</li>
+				</ul> 
+			</div>
+</span>
+ 
+
+
+
+
+
+
+
+
+	<h4>REF</h4>
+	<ul>
+		<li>
+			<a href="https://zh.wikipedia.org/wiki/%E5%86%B3%E7%AD%96%E6%A0%91">wiki - 决策树</a>
+		</li>
+		<li>
+			<a href="http://wiki.mbalib.com/zh-tw/%E5%86%B3%E7%AD%96%E6%A0%91">MBA LIB - 决策树</a>
+		</li>
+		<li>
+			<a href="http://fangs.in/post/thinkstats/decisiontree0/">关于决策树</a>
+		</li>
+		<li><a href="http://mslab.csie.asia.edu.tw/~jackjow/courses/992_DataMining/ppt/04_classfication_new.pdf">決策樹分類</a></li>
+		<li><a href="https://www.youtube.com/watch?v=3XaqEng_K5s">Introduction to Greedy Algorithms</a></li>
+		<li><a href="http://blog.csdn.net/a819825294/article/details/51239686">Overtraining</a></li>
+		<li><a href="https://www.youtube.com/watch?v=Zze7SKuz9QQ">GINI指数</a></li>
+		<li><a href="https://read01.com/zh-hk/mEjD8O.html#.WciuAROCyRs">隨機森林</a></li>
+	</ul>
+
+
+
+
+
+<a href="index.html">back</a>
+</body>
+</html>
